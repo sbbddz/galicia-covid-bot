@@ -1,0 +1,2 @@
+python-telegram-bot>=13.2
+pandas>=1.2.1
