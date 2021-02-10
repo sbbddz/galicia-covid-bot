@@ -1,0 +1,4 @@
+{
+    "welcome": "<b>¡Bienvenido al BOT de Telegram de Galicia-COVID!</b>\nAquí podrás encontrar toda la información de los últimos días acerca de la pandemia del <b>SARS-COV2</b> en Galicia.\nEste es un proyecto sencillo y está WIP, cualquier fallo no dudes en reportarlo en nuestro <a href='https://github.com/sbbddz/galicia-covid-bot'>github</a>",
+    "covidtotal-format": "Es necesario que indiques <b>ultimos</b> o <b>dias ·fecha en formato AAAA-MM-DD·</b> como argumento para obtener los datos!"
+}

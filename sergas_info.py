@@ -8,16 +8,16 @@ from datetime import date, timedelta
 
 class Sergas():
     """
-    TODO: Needs refactor
+    TODO: Needs refactor and a more fast way for getting data
     """
 
-    yesterday = (date.today() - timedelta(1)).strftime("%Y-%m-%d")
+    lastday = (date.today() - timedelta(1)).strftime("%Y-%m-%d")
 
     def __init__(self):
         self.url = "https://coronavirus.sergas.gal/infodatos/"
         self.mode = "_COVID19_Web_CifrasTotais.csv"
 
-    def get_full_data(self, date=yesterday):
+    def get_full_data(self, date=lastday):
         response = requests.get(self.url + date + self.mode)
         data = response.text
         return self.parse_data_with_pandas(data)
@@ -36,6 +36,12 @@ class Sergas():
 
     def get_health_area(self, number):
         return self.get_full_data()['Area_Sanitaria'][number]
+
+    def get_last_ten_days(self):
+        """
+        TODO: Implement method
+        """
+        pass
 
     def parse_data_with_pandas(self, data):
         buffer = io.StringIO(data)
