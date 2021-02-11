@@ -1,11 +1,9 @@
 from telegram.ext import CommandHandler
 from telegram import ParseMode
 from sergas_info import Sergas
-import json
+from lang_module import Lang
 
-with open("lang.json", "r") as file:
-    lang = json.loads(file.read())
-
+lang = Lang().get_lang_file()
 sergas = Sergas()
 
 
@@ -20,17 +18,23 @@ def covidtotal(update, context):
 
     if (len(context.args) > 0 and context.args[0] == "dias"):
         context.bot.send_message(
-            chat_id=chatid, text=sergas.get_total_cases("2021-02-08"))
+            chat_id=chatid, text=sergas.get_total_cases_lastday(), parse_mode=ParseMode.HTML)
     elif (len(context.args) > 0 and context.args[0] == "ultimos"):
         context.bot.send_message(
-            chat_id=chatid, text=sergas.get_last_ten_days())
+            chat_id=chatid, text="Estamos trabajando en ello! Fdo. Aznar")
     else:
         context.bot.send_message(
             chat_id=chatid, text=lang["covidtotal-format"], parse_mode=ParseMode.HTML)
         return
 
 
+def help(update, context):
+    context.bot.send_message(
+        chat_id=update.effective_chat.id, text=lang["help"], parse_mode=ParseMode.HTML)
+
+
 commands = {
     'start': CommandHandler('start', start),
-    'covidtotal': CommandHandler('covidtotal', covidtotal)
+    'covidtotal': CommandHandler('covidtotal', covidtotal),
+    'help': CommandHandler('help', help)
 }
