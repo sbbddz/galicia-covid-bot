@@ -22,6 +22,9 @@ def covidtotal(update, context):
     elif (len(context.args) > 0 and context.args[0] == "ultimos"):
         context.bot.send_message(
             chat_id=chatid, text="Estamos trabajando en ello! Fdo. Aznar")
+    elif (len(context.args) > 0):
+        context.bot.send_message(
+            chat_id=chatid, text=sergas.get_total_cases_day(context.args[0]), parse_mode=ParseMode.HTML)
     else:
         context.bot.send_message(
             chat_id=chatid, text=lang["covidtotal-format"], parse_mode=ParseMode.HTML)
