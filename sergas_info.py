@@ -6,7 +6,7 @@ import pandas as pd
 from datetime import date, timedelta
 from lang_module import Lang
 
-lastday = (date.today() - timedelta(2)).strftime("%Y-%m-%d")
+lastday = (date.today() - timedelta(1)).strftime("%Y-%m-%d")
 
 class Sergas():
     """
@@ -29,7 +29,7 @@ class Sergas():
         return json.loads(parsed_data.to_json())
 
     def get_total_cases_lastday(self):
-        formatted_string = ""
+        formatted_string = self.lang["day-header"].format(lastday)
         for i, j in enumerate(self.data['Casos_Totais'].values()):
             formatted_string += self.lang["total-cases"].format(
                 self.get_health_area(str(i)), str(j))
@@ -43,15 +43,28 @@ class Sergas():
             return self.lang["no-data"]
         formatted_string = ""
         for i, j in enumerate(data['Casos_Totais'].values()):
-            formatted_string += self.lang["total-cases"].format(self.get_health_area(str(i)), str(j))
+            formatted_string += self.lang["total-cases"].format(self.get_health_area(i), str(j))
         
         return formatted_string
 
     def get_health_area(self, number):
-        return self.data['Area_Sanitaria'][number]
+        return self.data['Area_Sanitaria'][str(number)]
+
+    def get_new_cases_lastday(self):
+        formatted_string = self.lang["day-header"].format(lastday)
+        for i, j in enumerate(self.data['Casos_Confirmados_PCR_Ultimas24h'].values()):
+            formatted_string += self.lang["new-cases"].format(self.get_health_area(i), str(j))
+        return formatted_string
 
     def get_last_ten_days(self):
         """
         TODO: Implement method
         """
         pass
+
+
+class Data():
+    """
+        TODO: Implement a new class on other file that handles data, sergas is getting bigger
+    """
+    pass

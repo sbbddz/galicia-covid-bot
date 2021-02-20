@@ -1,6 +1,5 @@
 import json
 
-
 class Lang():
 
     def __init__(self):
