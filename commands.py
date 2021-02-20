@@ -14,7 +14,7 @@ def start(update, context):
 def covid(update, context):
     chatid = update.effective_chat.id
 
-    if (len(context.args) > 0 and context.args[0] == "totalhoy"):
+    if (len(context.args) > 0 and context.args[0] == "total"):
         context.bot.send_message(
             chat_id=chatid, text=sergas.get_total_cases_lastday(), parse_mode=ParseMode.HTML)
     elif (len(context.args) > 0 and context.args[0] == "hoy"):
