@@ -11,21 +11,21 @@ def start(update, context):
     context.bot.send_message(
         chat_id=update.effective_chat.id, text=welcome, parse_mode=ParseMode.HTML)
 
-def covid(update, context):
-    chatid = update.effective_chat.id
+def hoy(update, context):
+    context.bot.send_message(
+        chat_id=update.effective_chat.id, text=sergas.get_new_cases_lastday(), parse_mode=ParseMode.HTML)
 
-    if (len(context.args) > 0 and context.args[0] == "total"):
+def total(update, context):
+    context.bot.send_message(
+        chat_id=update.effective_chat.id, text=sergas.get_total_cases_lastday(), parse_mode=ParseMode.HTML)
+
+def covid(update, context):
+    if (len(context.args) > 0):
         context.bot.send_message(
-            chat_id=chatid, text=sergas.get_total_cases_lastday(), parse_mode=ParseMode.HTML)
-    elif (len(context.args) > 0 and context.args[0] == "hoy"):
-        context.bot.send_message(
-            chat_id=chatid, text=sergas.get_new_cases_lastday(), parse_mode=ParseMode.HTML)
-    elif (len(context.args) > 0):
-        context.bot.send_message(
-            chat_id=chatid, text=sergas.get_total_cases_day(context.args[0]), parse_mode=ParseMode.HTML)
+            chat_id=update.effective_chat.id, text=sergas.get_total_cases_day(context.args[0]), parse_mode=ParseMode.HTML)
     else:
         context.bot.send_message(
-            chat_id=chatid, text=lang["covid-format"], parse_mode=ParseMode.HTML)
+            chat_id=update.effective_chat.id, text=lang["covid-format"], parse_mode=ParseMode.HTML)
 
 def help(update, context):
     context.bot.send_message(
@@ -34,5 +34,7 @@ def help(update, context):
 commands = {
     'start': CommandHandler('start', start),
     'covid': CommandHandler('covid', covid),
-    'help': CommandHandler('help', help)
+    'help': CommandHandler('help', help),
+    'hoy': CommandHandler('hoy', hoy),
+    'total': CommandHandler('total', total)
 }

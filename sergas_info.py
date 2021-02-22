@@ -18,6 +18,8 @@ class Sergas():
 
     def get_total_cases_day(self, date):
         data = self.data.fetch_data(date=date)
+        if data == None:
+            return "Ahora mismo no tenemos datos disponibles"
         formatted_string = self.lang["day-header"].format(date)
         for i, j in enumerate(data['Casos_Totais'].values()):
             formatted_string += self.lang["total-cases"].format(self.data.get_health_area(i), str(j))

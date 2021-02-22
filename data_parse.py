@@ -20,7 +20,7 @@ class Data():
             data = response.text
             return self.parse_data_with_pandas(data)
         except:
-            return "No data avaliable"
+            return None
 
     def parse_data_with_pandas(self, data):
         buffer = io.StringIO(data)
