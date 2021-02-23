@@ -19,13 +19,13 @@ def total(update, context):
     context.bot.send_message(
         chat_id=update.effective_chat.id, text=sergas.get_total_cases_lastday(), parse_mode=ParseMode.HTML)
 
-def covid(update, context):
+def dia(update, context):
     if (len(context.args) > 0):
         context.bot.send_message(
             chat_id=update.effective_chat.id, text=sergas.get_total_cases_day(context.args[0]), parse_mode=ParseMode.HTML)
     else:
         context.bot.send_message(
-            chat_id=update.effective_chat.id, text=lang["covid-format"], parse_mode=ParseMode.HTML)
+            chat_id=update.effective_chat.id, text=lang["dia-format"], parse_mode=ParseMode.HTML)
 
 def help(update, context):
     context.bot.send_message(
@@ -33,7 +33,7 @@ def help(update, context):
 
 commands = {
     'start': CommandHandler('start', start),
-    'covid': CommandHandler('covid', covid),
+    'dia': CommandHandler('dia', dia),
     'help': CommandHandler('help', help),
     'hoy': CommandHandler('hoy', hoy),
     'total': CommandHandler('total', total)

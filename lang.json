@@ -1,9 +1,9 @@
 {
-    "welcome": "<b>¡Bienvenido al BOT de Telegram de Galicia-COVID!</b>\nAquí podrás encontrar toda la información de los últimos días acerca de la pandemia del <b>SARS-COV2</b> en Galicia.\nEste es un proyecto sencillo y está WIP, cualquier fallo no dudes en reportarlo en nuestro <a href='https://github.com/sbbddz/galicia-covid-bot'>github</a>",
-    "covid-format": "Es necesario que indiques\n-> <b>/covid (FECHA AAAA-MM-DD)</b> para obtener los datos de un día en concreto",
-    "total-cases": "En la <b>{}</b> hay <b>{}</b> casos totales\n",
-    "new-cases": "En la <b>{}</b> hay <b>{}</b> nuevos casos\n",
-    "help": "<b>¡Con este bot podrás utilizar diferentes comandos!</b>\n-><b>/covid (FECHA AAAA-MM-DD)</b> para obtener los datos de un día en concreto\n-><b>/hoy</b> para obtener los casos nuevos hoy\n-><b>/total</b> para obtener lso casos totales a día de hoy",
+    "welcome": "<b>Benvido! / ¡Bienvenido!</b>\nEste es un pequeño BOT de Telegram dónde podrás obtener información actualizada sobre los casos de la <b>COVID-19</b> en la región de Galicia.\nUsando <b>/help</b> podrás ver los diferentes comandos para comunicarte con el BOT.",
+    "dia-format": "Es necesario que indiques\n-> <b>/covid (FECHA AAAA-MM-DD)</b> para obtener los datos de un día en concreto",
+    "total-cases": "En <b>{}</b> hay <b>{}</b> casos totales\n",
+    "new-cases": "En <b>{}</b> hay <b>{}</b> nuevos casos\n",
+    "help": "<b>Estos son los comandos disponibles actualmente:</b>\n-><b>/dia (FECHA AAAA-MM-DD)</b> para obtener los datos de un día en concreto\n-><b>/hoy</b> para obtener los casos nuevos hoy\n-><b>/total</b> para obtener los casos totales a día de hoy",
     "no-data": "Nuestro bot no cuenta con datos anteriores o posteriores a 2021 sobre el covid en Galicia, puedes consultarlos en la página web del sergas!",
     "day-header": "A día <b>{}</b> estos son los datos sobre la COVID-19 con los que contamos:\n"
 }
